@@ -21,7 +21,7 @@ public class Student {
 		this.sub1 = sub1;
 		this.sub2 = sub2;
 		this.sub3 = sub3;
-		this.percentage = (sub1+sub2+sub3) * 0.3f;
+		this.percentage = (sub1+sub2+sub3) /3;
 	}
 	
 

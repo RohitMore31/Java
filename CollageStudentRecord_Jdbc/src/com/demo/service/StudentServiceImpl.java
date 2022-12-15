@@ -1,5 +1,6 @@
 package com.demo.service;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.demo.beans.Student;
@@ -29,6 +30,21 @@ public class StudentServiceImpl implements StudentService{
 		int sub3 = sc.nextInt();
 		Student std = new Student(id, name, sub1, sub2, sub3);
 		return simpl.AddNewStudent(std);
+	}
+
+	@Override
+	public List<Student> showAllStudent() {
+		return simpl.ShowAllStudent();
+	}
+
+	@Override
+	public Student searchByID(int n) {
+		return simpl.SearchByID(n);
+	}
+
+	@Override
+	public Student findSubTopper(int n) {
+		return simpl.FindSubTopper(n);
 	}
 	
 	

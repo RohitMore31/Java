@@ -24,6 +24,7 @@ public class Student {
 		this.percentage = (sub1+sub2+sub3) * 0.3f;
 	}
 	
+
 	// Getter And Setter 
 	public int getId() {
 		return id;
@@ -54,6 +55,13 @@ public class Student {
 	}
 	public void setSub3(float sub3) {
 		this.sub3 = sub3;
+	}
+	public float getPercentage() {
+		return percentage;
+	}
+	
+	public void setPercentage(float percentage) {
+		this.percentage = percentage;
 	}
 	
 	// ToString

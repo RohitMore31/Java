@@ -11,20 +11,21 @@ import com.demo.beans.Student;
 
 public class StudentdaoImpl implements Studentdao {
 	static Connection con;
-	static PreparedStatement ps,ps1,ps2,ps4; 
+	static PreparedStatement ps,ps1,ps2,ps3,ps4; 
 	static {
 		try {
+			// Creating connection 
 			con = DBUtils.CreateMyConnection();
+			
+			// Preparing Statements 
 			ps = con.prepareStatement("insert into Student values(?,?,?,?,?,?)");
 			ps1 = con.prepareStatement("Select * from Student ");
 			ps2 =con.prepareStatement("select * from Student where id=?");
-			
+			ps3 =con.prepareStatement("select * from Student order by sub? desc limit 1");
 
 		} catch (SQLException e) {
 			e.getMessage();
 		}
-
-
 
 	}
 
@@ -42,6 +43,7 @@ public class StudentdaoImpl implements Studentdao {
 			// Executing Query
 			int n = ps.executeUpdate();
 			if(n>0) {
+				// Execute Successfully then returning true
 				return true;
 			}
 		} catch (SQLException e) {
@@ -52,29 +54,19 @@ public class StudentdaoImpl implements Studentdao {
 
 	@Override
 	public List<Student> ShowAllStudent() {
+		// List of Student
 		List<Student> lt = new ArrayList<>();
 		try {
+			// Executing Query
 			ResultSet rs = ps1.executeQuery();
 			while(rs.next()) {
+				// Create of of Student using data from Result set 
 				Student st = new Student(rs.getInt(1),rs.getString(2),rs.getFloat(3),rs.getFloat(4),rs.getFloat(5));
 				lt.add(st);
 			}
+			
+			// Return list
 			return lt;
-		} catch (SQLException e) {
-			e.getMessage();
-			return null;
-		}
-	}
-
-	@Override
-	public Student SearchByID(int n) {
-		try {
-			ps2.setInt(n, n);
-			ResultSet rs = ps2.executeQuery();
-			while(rs.next()) {
-				Student st = new Student(rs.getInt(1),rs.getString(2),rs.getFloat(3),rs.getFloat(4),rs.getFloat(5));
-				return st;
-			}
 		} catch (SQLException e) {
 			e.getMessage();
 		}
@@ -82,9 +74,32 @@ public class StudentdaoImpl implements Studentdao {
 	}
 
 	@Override
+	public Student SearchByID(int n) {
+		try {
+			// setting value of n to QueryString
+			ps2.setInt(1, n);
+			
+			// executing ps2 statement
+			ResultSet rs = ps2.executeQuery();
+			
+			while(rs.next()) {
+			//	converting result set into object of student
+				Student st = new Student(rs.getInt(1),rs.getString(2),rs.getFloat(3),rs.getFloat(4),rs.getFloat(5));
+			
+			//  Returning student object to serviceImpl 
+				return st;
+			}
+		} catch (SQLException e) {
+			e.getMessage();
+		}
+		// if not found the returning null
+		return null;
+	}
+
+	@Override
 	public Student FindSubTopper(int n) {
 		try {
-			PreparedStatement ps3 =con.prepareStatement("select * from Student order by "+n+" desc limit 1");
+			ps3.setInt(1, n);
 			ResultSet rs = ps3.executeQuery();
 			while(rs.next()) {
 				Student st = new Student(rs.getInt(1),rs.getString(2),rs.getFloat(3),rs.getFloat(4),rs.getFloat(5));
@@ -95,4 +110,6 @@ public class StudentdaoImpl implements Studentdao {
 		}
 		return null;
 	}
+	
+	
 }

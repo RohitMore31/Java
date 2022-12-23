@@ -28,6 +28,7 @@ public class TestStudent {
 
 			switch(choice) {
 			case 1:
+				// Adding New Student
 				boolean status = ss.addNewStudent();
 				if(status) {
 					System.out.println("Inserted Sucessfully!! ");
@@ -37,6 +38,8 @@ public class TestStudent {
 				break;
 				
 			case 2:
+				// Searching Student
+				// Giving id of Student from User
 				System.out.println("Enter Id of Student");
 				int n =sc.nextInt();
 				Student std = ss.searchByID(n);

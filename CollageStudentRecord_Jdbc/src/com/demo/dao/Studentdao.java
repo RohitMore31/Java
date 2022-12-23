@@ -20,4 +20,8 @@ public interface Studentdao {
 	//Finding Toper in particular subject
 	Student FindSubTopper(int n);
 
+	List<Student> RankStudent();
+
+	boolean DeleteByID(int n);
+
 }

@@ -46,6 +46,16 @@ public class StudentServiceImpl implements StudentService{
 	public Student findSubTopper(int n) {
 		return simpl.FindSubTopper(n);
 	}
+
+	@Override
+	public List<Student> rankStudent() {
+		return simpl.RankStudent();
+	}
+
+	@Override
+	public boolean deleteByID(int n) {
+		return simpl.DeleteByID(n);
+	}
 	
 	
 	

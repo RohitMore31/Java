@@ -25,6 +25,12 @@ public class Student {
 	}
 	
 
+	public Student(int id, String name, float percentage) {
+		this.id = id;
+		this.name = name;
+		this.percentage = percentage;
+	}
+
 	// Getter And Setter 
 	public int getId() {
 		return id;

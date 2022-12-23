@@ -47,20 +47,37 @@ public class TestStudent {
 				break;
 				
 			case 3: 
+				//Display All
 				List<Student> lst = ss.showAllStudent();
 				lst.forEach(System.out::println);
 				break;
 				
 			case 4:
+				// Find Top Scorer in Particular Exam
 				System.out.println("Enter Subject id 1/2/3 ");
 				n =sc.nextInt();
 				std = ss.findSubTopper(n);
 				System.out.println(std);
 				break;
+				
 			case 5:
+				// Arranging According to Percentage
+				lst = ss.rankStudent();
+				lst.forEach(System.out::println);
 				break;
+				
 			case 6:
+				// Giving id of Student from User to  be Deleted
+				System.out.println("Enter Id of Student");
+				n =sc.nextInt();
+				status = ss.deleteByID(n);
+				if(status) {
+					System.out.println("Deleted Sucessfully!! From Database ");
+				}else{
+					System.out.println("Error .. Try Again");
+				}
 				break;
+				
 			case 7:
 				break;
 			case 8:

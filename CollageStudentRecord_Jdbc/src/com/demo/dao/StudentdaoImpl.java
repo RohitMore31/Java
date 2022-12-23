@@ -11,7 +11,7 @@ import com.demo.beans.Student;
 
 public class StudentdaoImpl implements Studentdao {
 	static Connection con;
-	static PreparedStatement ps,ps1,ps2,ps3,ps4; 
+	static PreparedStatement ps,ps1,ps2,ps3,ps4,ps5; 
 	static {
 		try {
 			// Creating connection 
@@ -22,7 +22,8 @@ public class StudentdaoImpl implements Studentdao {
 			ps1 = con.prepareStatement("Select * from Student ");
 			ps2 =con.prepareStatement("select * from Student where id=?");
 			ps3 =con.prepareStatement("select * from Student order by sub? desc limit 1");
-
+			ps4 =con.prepareStatement("select dense_rank() over(order by percentage desc)Rank_in_class,name,percentage from student;");
+			ps5 =con.prepareStatement("delete from student where id=?");
 		} catch (SQLException e) {
 			e.getMessage();
 		}
@@ -110,6 +111,47 @@ public class StudentdaoImpl implements Studentdao {
 		}
 		return null;
 	}
+
+	
+	@Override
+	public List<Student> RankStudent() {
+		try {
+			List<Student> lt = new ArrayList<>();
+			// executing ps4 statement
+			ResultSet rs = ps4.executeQuery();
+			
+			while(rs.next()) {
+			//	converting result set into object of student
+				Student st = new Student(rs.getInt(1),rs.getString(2),rs.getFloat(3));
+				lt.add(st);
+			//  Returning student object to serviceImpl 
+				return lt;
+			}
+		} catch (SQLException e) {
+			e.getMessage();
+		}
+		return null;
+	}
+
+	@Override
+	public boolean DeleteByID(int n) {
+		try {
+			//binding data to statement
+			ps5.setInt(1, n);
+			
+			// Executing Query
+			int result = ps5.executeUpdate();
+			if(n>0) {
+				// Execute Successfully then returning true
+				return true;
+			}
+		} catch (SQLException e) {
+			e.getMessage();
+		}
+		return false;
+
+	}
+	
 	
 	
 }

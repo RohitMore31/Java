@@ -14,4 +14,8 @@ public interface StudentService {
 
 	Student findSubTopper(int n);
 
+	List<Student> rankStudent();
+
+	boolean deleteByID(int n);
+
 }

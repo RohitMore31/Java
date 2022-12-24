@@ -56,6 +56,11 @@ public class StudentServiceImpl implements StudentService{
 	public boolean deleteByID(int n) {
 		return simpl.DeleteByID(n);
 	}
+
+	@Override
+	public boolean updateMark(int subnum, int newMark,int n) {
+		return simpl.UpdateMark(subnum,newMark,n);
+	}
 	
 	
 	

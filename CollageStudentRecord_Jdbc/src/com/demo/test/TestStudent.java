@@ -14,7 +14,7 @@ public class TestStudent {
 		StudentService ss = new StudentServiceImpl();
 		int choice =0;
 		do {
-			System.out.println("==============Menu+==============\n");
+			System.out.println("==============Menu==============\n");
 			System.out.println("1)Add New Student \n "
 					+ "2)Search Student by id \n "
 					+ "3)Show All Student \n"
@@ -23,6 +23,7 @@ public class TestStudent {
 					+ "6)Delete Student\n"
 					+ "7)Correct Mark of Subject Of Student \n "
 					+ "8)Exit \n");
+			// Enter choice 
 			System.out.println("enter the choice ");
 			choice=sc.nextInt();
 
@@ -39,7 +40,7 @@ public class TestStudent {
 				
 			case 2:
 				// Searching Student
-				// Giving id of Student from User
+				// Taking id of Student from User
 				System.out.println("Enter Id of Student");
 				int n =sc.nextInt();
 				Student std = ss.searchByID(n);
@@ -63,11 +64,16 @@ public class TestStudent {
 			case 5:
 				// Arranging According to Percentage
 				lst = ss.rankStudent();
-				lst.forEach(System.out::println);
+				for (Student stud : lst) {
+					System.out.print("Rank = "+stud.getId());
+					System.out.print(" Name= "+stud.getName());
+					System.out.print(" Percentage = "+stud.getPercentage());
+					System.out.println();
+				}
 				break;
 				
 			case 6:
-				// Giving id of Student from User to  be Deleted
+				// Taking id of Student from User to  be Deleted
 				System.out.println("Enter Id of Student");
 				n =sc.nextInt();
 				status = ss.deleteByID(n);
@@ -79,11 +85,33 @@ public class TestStudent {
 				break;
 				
 			case 7:
+				// First Searching Student
+				// Taking id of Student from User
+				System.out.println("Enter Id of Student");
+				n =sc.nextInt();
+				std = ss.searchByID(n);
+				System.out.println(std);
+				
+				// Taking Updated mark from Student
+				System.out.println("Subject Number (1/2/3) on Which Update Is Perform");
+				int subnum=sc.nextInt();
+				
+				// Taking New Marks 
+				System.out.println("Enter New Mark");
+				int newMark=sc.nextInt();
+				status =ss.updateMark(subnum,newMark,n);
+				if(status) {
+					System.out.println("Updated Sucessfully!! ");
+				}else{
+					System.out.println("Error .. Try Again");
+				}
 				break;
+				
 			case 8:
 				System.out.println("Thank you !!!!!! :)  ");
 				sc.close();
 				break;
+				
 			default:
 				System.out.println("invalid choice...");
 			}

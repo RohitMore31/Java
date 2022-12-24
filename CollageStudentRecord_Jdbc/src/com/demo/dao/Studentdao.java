@@ -24,4 +24,6 @@ public interface Studentdao {
 
 	boolean DeleteByID(int n);
 
+	boolean UpdateMark(int subnum, int newMark, int n);
+
 }

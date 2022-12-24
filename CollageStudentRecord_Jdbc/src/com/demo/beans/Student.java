@@ -10,12 +10,16 @@ public class Student {
 	
 	//Parameter less Constructor
 	public Student() {
-		super();
+		id=0;
+		name=null;
+		sub1=0.0f;
+		sub2=0.0f;
+		sub3=0.0f;
+		percentage=0.0f;
 	}
 	
 	//Parameterized  Constructor
 	public Student(int id, String name, float sub1, float sub2, float sub3) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.sub1 = sub1;
@@ -72,9 +76,10 @@ public class Student {
 	
 	// ToString
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", sub1=" + sub1 + ", sub2=" + sub2 + ", sub3=" + sub3
-				+ ", percentage=" + percentage + "]";
+		return "Student id = "+id+" Name = "+name+" mark of Sub1 = "+sub1+" mark of Sub3 = "+sub2+
+				" mark of Sub3 = "+sub3+" Percentage = "+percentage;
 	}
+	
 	
 	
 }

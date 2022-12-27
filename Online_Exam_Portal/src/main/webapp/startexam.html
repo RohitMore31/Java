@@ -4,25 +4,46 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style>
-.Examlogin{
-display:flex;
-background-color:blue;
-color:white;
-justfy-content:center;
+body{
+background-image: linear-gradient(to right, #c9c9c9,  #008CBA);
+	margin:0;
+	padding:0;
 }
-
+.Examlogin {
+	background-color: #e7e7e7;
+	color: #2F2FA2;
+	text-align:center;
+	margin:10vh auto;
+	width:40vw;
+	height:60vh;
+}
+.startform{
+	padding:10vh;
+}
+.startform input {
+	padding: 5px;
+	margin: 10px;
+	width:30vw;
+	border-radius: 5px;
+}
 </style>
 </head>
+<link rel="stylesheet" href="Style.css">
 <body>
 
 	<div class='Examlogin'>
- 	<form action='examstart' method='get' class='startform'>
-		<h2>Enter your data</h2>
-		email = <input type='text' name=email><br> pass = <input
-			type='text' name=pass><br>
-		<button type='submit' name='btn' id='btn'>Submit</button>
-	</form>
-</div>
+		<form action='examstart' method='get' class='startform'>
+			<h2>Login to Start Exam</h2>
+			<div>
+				<input type='text' name=email placeholder="Enter Email"><br>
+			</div>
+			<div>
+				<input type='text' name=pass placeholder="Enter PassWord"><br>
+			</div>
+			
+			<button type='submit' name='btn' id='btn' class='btn'>Submit</button>
+		</form>
+	</div>
 
 
 

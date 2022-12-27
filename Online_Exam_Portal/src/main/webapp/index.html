@@ -3,8 +3,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
 </head>
 <style>
+
 body {
 	background-image: url("clouds.jpg");
 	background-size: cover;
@@ -17,9 +19,14 @@ body {
 	background-color: white;
 	text-align: center;
 	width: 50vw;
-	margin: 25vh auto;
+	margin: 15vh auto;
 	padding: auto auto;
 	background-image: linear-gradient(to right, #c998e7, darkblue);
+}
+.container h2{
+  font-family: 'Tangerine', serif;
+  font-size: 48px;
+  text-shadow: 4px 4px 4px #aaa;
 }
 
 .box {
@@ -33,22 +40,28 @@ body {
 	padding: 5px;
 	width: 25vw;
 }
+.box:hover{
+	background-color: white;
+	color:white;
+}
 
 .box a {
+	text-decoration:none;
 	color: white;
+	color:black;
 }
 </style>
 <body>
 	<div class="container">
 		<div>
-			<h2>Welcome To Exam Centre</h2>
+			<h2>Welcome To Exam Portal</h2>
 		</div>
 		<div class="box">
-			<a href='./register.html'> register</a>
+			<a href='./register.html'> Register For Exam</a>
 		</div>
 
 		<div class="box">
-			<a href='./startexam.html'>StartExam</a>
+			<a href='./startexam.html'>Start Exam</a>
 		</div>
 
 		<div class="box">

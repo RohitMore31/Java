@@ -4,38 +4,81 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style>
-body{
-	background-image: linear-gradient(to right,  #c9c9c9 ,red);
-	background-size : cover;
-	}
-.a1{
-	font-style : bolder;
-	size : 48px;
-	font-family: monospace;
-	color : yellow;
+body {
+	background-image: linear-gradient(to right, #c9c9c9,  #008CBA);
+	background-size: cover;
 }
-.box{
-		border-radius: 5;
-		text-align: center;
+
+
+.box {
+	border: 2px solid white;
+	border-radius: 5;
+	text-align: center;
+	border-radius: 5;
+	background-color: #e7e7e7; border-radius : 5px;
+	width:70vw;
+	margin:10vh auto;
+	padding :2rem;
 }
+
+h4 {
+	padding: 0px;
+	margin: 0px;
+}
+
+.inputbox input {
+	padding: 5px;
+	margin: 10px;
+	width:30vw;
+	border-radius: 5px;
+}
+
+select {
+	padding: 5px;
+	width: 15vw;
+	text-align: center;
+	margin: 10px;
+	border-radius: 5px;
+}
+
 </style>
+<link rel="stylesheet" href="Style.css">
 </head>
 <body>
 	<div class='box'>
-	<form action='registerStudent' name='form'>
-		uname = <input type='text' name=uname><br>
-		email=<input type='text' name=email><br>
- 		pass = <input type='text'name='pass'><br>
- 		Topic = <input type='text' name='topic'><br>
-		<button name='btn' value='btn'>Submit</button>
-	</form>
-	
-	</div>
-	<marquee>
-	<div class='a1'>
-	<h1>  This is a mock test. We are not responsible for any depression caused by failing this exam. Attempt at your own risk.    Thank You For Visiting :)</h1>
-	</div>
+	<h2>Register For Exam</h2>
+		<form action='registerStudent' name='form'>
+			<div class=inputbox>
+				<input type='text' name=uname placeholder='Enter Name'><br>
+			</div>
+
+			<div class=inputbox>
+				<input type='text' name=email placeholder='Enter Email'><br>
+			</div>
+
+			<div class=inputbox>
+				<input type='password' name='pass' placeholder="Enter Password"><br>
+			</div>
+
+			<h4>Select Exam</h4>
+			<select name="topic" id="topic">
+				<option value="Html">Html</option>
+				<option value="Css">Css</option>
+				<option value="Java">Java</option>
+				<option value="Operating System">Operating System</option>
+			</select> <br>
+
+			<button name='btn' value='btn' class="btn">Submit</button>
+		</form>
+
+ </div>
+	<!--<marquee>
+		<div class='a1'>
+			<h1>This is a mock test. We are not responsible for any
+				depression caused by failing this exam. Attempt at your own risk.
+				Thank You For Visiting :)</h1>
+		</div>
 	</marquee>
-	
+ -->	
 </body>
 </html>

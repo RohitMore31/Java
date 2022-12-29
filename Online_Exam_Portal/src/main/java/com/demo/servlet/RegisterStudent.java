@@ -20,6 +20,7 @@ public class RegisterStudent extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
+		// Getting Parameter usin QueryString
 		String uname=request.getParameter("uname");
 		String pass=request.getParameter("pass");
 		String email=request.getParameter("email");

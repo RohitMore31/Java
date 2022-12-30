@@ -53,11 +53,14 @@ select {
 			</div>
 
 			<div class=inputbox>
-				<input type='text' name=email placeholder='Enter Email'><br>
+				<input type='text' name=email placeholder='Enter Email'
+				pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
 			</div>
 
 			<div class=inputbox>
-				<input type='password' name='pass' placeholder="Enter Password"><br>
+				<input type='password' name='pass' placeholder="Enter Password"
+				pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+					title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters"><br>
 			</div>
 
 			<h4>Select Exam</h4>
@@ -71,14 +74,6 @@ select {
 			<button name='btn' value='btn' class="btn">Submit</button>
 		</form>
 
- </div>
-	<!--<marquee>
-		<div class='a1'>
-			<h1>This is a mock test. We are not responsible for any
-				depression caused by failing this exam. Attempt at your own risk.
-				Thank You For Visiting :)</h1>
-		</div>
-	</marquee>
- -->	
+ </div>	
 </body>
 </html>

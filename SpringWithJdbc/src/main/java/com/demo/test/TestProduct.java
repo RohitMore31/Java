@@ -18,17 +18,25 @@ public class TestProduct {
 		
 		Scanner sc = new Scanner(System.in); 
 		do {
-			System.out.println("1) Add new Product \n 2)Show All Product \n 3)Delate Product by id \n "
-					+ "4)Serach Product By id \n 5)Update product \n 6)Dispaly by Price \n 7)Exit   ");
+			System.out.println("1) Add new Product \n 2)Show All Product \n 3)Delete Product by id \n "
+					+ "4)Search Product By id \n 5)Update product \n 6)Dispaly by Price \n 7)Exit   ");
 			System.out.println("choice :");
 			choice=sc.nextInt();
 			switch (choice) {
 			case 1:
+				// Add new Product if Added Then return status as true
 				boolean status=pser.addProduct(); 
+				if(status) {
+					System.out.println("Product Added In Database");
+				}else {
+					System.out.println("Not Added Try Again");
+				}
 				break;
 				
 			case 2:
+				// Showing All Product 
 				List<Product>plist =pser.showAll(); 
+				// Display on console
 				if(plist!=null) {
 					plist.forEach(x->{System.out.println(x);});
 				}else {
@@ -37,6 +45,8 @@ public class TestProduct {
 				break;
 				
 			case 3: 
+				//Delete Product by id 
+				// Taking id from user
 				System.out.println("Enter id of Product to be Delete");
 				int id =sc.nextInt();
 				int rs=pser.deleteProduct(id);
@@ -48,7 +58,8 @@ public class TestProduct {
 				break;
 			
 			case 4:
-				System.out.println("Enter id of Product to be Delete");
+				//Search Product By id
+				System.out.println("Enter id of Product to be Search");
 				id =sc.nextInt();
 				Product p = pser.serchById(id);
 				if(p!=null) {
@@ -57,9 +68,25 @@ public class TestProduct {
 					System.out.println("Not Found!!");
 				}
 				break;
+				
+			case 5:
+				// Update product
+				System.out.println("Enter id of Product to be Search");
+				id =sc.nextInt();
+				//Search Product By id
+				p = pser.serchById(id);
+				// Product is found then Update it
+				if(p!=null) {
+					status = pser.updateProduct();
+				}else {
+					System.out.println("Not Found!!");
+				}
+				break;
+				
 			default:
 				break;
 			}
+			
 			
 		}while(choice!=7);
 		

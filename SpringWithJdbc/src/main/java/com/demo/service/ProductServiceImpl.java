@@ -54,5 +54,11 @@ public class ProductServiceImpl implements ProductService {
 		return pdao.SerchById(id);
 	}
 
+	@Override
+	public boolean updateProduct() {
+		///
+		return false;
+	}
+
 	
 }

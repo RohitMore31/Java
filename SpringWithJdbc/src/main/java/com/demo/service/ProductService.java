@@ -14,4 +14,6 @@ public interface ProductService {
 
 	Product serchById(int id);
 
+	boolean updateProduct();
+
 }

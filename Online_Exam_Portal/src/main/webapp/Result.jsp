@@ -37,7 +37,7 @@ h3 {
 </style>
 <body>
 	<%
-	String examstatus = "fail";
+	String examstatus = "Fail";
 	int marks = 0;
 	// Getting mark from session  
 	session = request.getSession();
@@ -45,7 +45,7 @@ h3 {
 		marks = (Integer) session.getAttribute("totalmark");
 		// if mark is 3or above display status pass
 		if (marks >= 3) {
-			examstatus = "pass";
+			examstatus = "Pass";
 		}
 	}
 	%>
@@ -54,6 +54,7 @@ h3 {
 		<h2>
 			Your Result Is
 			<%=examstatus%>
+			
 		</h2>
 		<div id="mygif">
 			<img alt="opss"

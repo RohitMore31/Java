@@ -5,7 +5,7 @@ import java.util.List;
 import com.demo.beans.Qpaper;
 import com.demo.dao.StudentdaoImpl;
 
-public class StudentServiceImpl {
+public class StudentServiceImpl implements StudentService {
 //	(uname varchar(20),email varchar(30), pass varchar(20),mark double);
 	
 	// creating ob of daoimpl
@@ -24,12 +24,14 @@ public class StudentServiceImpl {
 		return sdao.StartExam(pass,email);
 	}
 
-	public List<Qpaper> allQuestion() {
-		return sdao.AllQuestion();
-	}
-
 	public List<String> allQuestionAns() {
 		return sdao.AllQuestionAns();
+	}
+
+	@Override
+	public List<Qpaper> allQuestion(String topic) {
+		// TODO Auto-generated method stub
+		return sdao.AllQuestion();
 	}
 	
 	

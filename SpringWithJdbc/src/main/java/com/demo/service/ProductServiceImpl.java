@@ -55,9 +55,18 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public boolean updateProduct() {
-		///
-		return false;
+	public int updateProduct(int pid) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter pname");
+		String pname=sc.next();
+		System.out.println("enter qty");
+		int qty=sc.nextInt();
+		System.out.println("enter price");
+		float price=sc.nextFloat();
+		System.out.println("enter category");
+		String category=sc.next();
+		Product p=new Product(pid,pname,price,qty,category);
+		return pdao.UpdateProduct(p);
 	}
 
 	

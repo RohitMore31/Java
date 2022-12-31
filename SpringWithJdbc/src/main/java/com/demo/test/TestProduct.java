@@ -14,12 +14,12 @@ public class TestProduct {
 	public static void main(String[] args) {
 		int choice=0;
 		ApplicationContext apt = new ClassPathXmlApplicationContext("springconfig.xml");
-		ProductService pser = (ProductService) apt.getBean("p1");
+		ProductService pser = (ProductService) apt.getBean("pservice");
 		
 		Scanner sc = new Scanner(System.in); 
 		do {
-			System.out.println("1) Add new Product \n 2)Show All Product \n 3)Delete Product by id \n "
-					+ "4)Search Product By id \n 5)Update product \n 6)Dispaly by Price \n 7)Exit   ");
+			System.out.println("1)Add new Product \n 2)Show All Product \n 3)Delete Product by id \n "
+					+ "4)Search Product By id \n 5)Update product   \n 6)Exit   ");
 			System.out.println("choice :");
 			choice=sc.nextInt();
 			switch (choice) {
@@ -71,26 +71,32 @@ public class TestProduct {
 				
 			case 5:
 				// Update product
-				System.out.println("Enter id of Product to be Search");
+				System.out.println("Enter id of Product to be update");
 				id =sc.nextInt();
 				//Search Product By id
 				p = pser.serchById(id);
+				System.out.println(p);
 				// Product is found then Update it
-				if(p!=null) {
-					status = pser.updateProduct();
+				 rs=pser.updateProduct(id);
+				if(rs>0) {
+					System.out.println("Updated Successfully!!!");
 				}else {
-					System.out.println("Not Found!!");
+					System.out.println("Error Not Updated");
 				}
 				break;
 				
+			case 6:
+				System.out.println("Thank you :) ");
+				sc.close();
+				break;
+				
 			default:
+				System.out.println("Wrong choice ");
 				break;
 			}
 			
 			
-		}while(choice!=7);
-		
-		
+		}while(choice!=6);
 		
 	}
 

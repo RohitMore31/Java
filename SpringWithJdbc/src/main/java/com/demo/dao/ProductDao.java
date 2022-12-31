@@ -14,4 +14,6 @@ public interface ProductDao {
 
 	Product SerchById(int id);
 
+	int UpdateProduct(Product p);
+
 }

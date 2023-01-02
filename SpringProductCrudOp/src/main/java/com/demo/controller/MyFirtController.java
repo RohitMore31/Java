@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class MyHelloController {
+public class MyFirtController {
+	
 	@RequestMapping(value="/hello",method=RequestMethod.GET)
-	public ModelAndView sayHello() {
-		String str="Hello world1111!!";    
-		return new ModelAndView("displayhello","msg",str);
+	public ModelAndView printHell() {
+		String str = "Hellow Rohit";
+		return new ModelAndView("rohit","ptr",str);
 	}
 }

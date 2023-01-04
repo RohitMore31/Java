@@ -16,7 +16,7 @@ public class logindaoImpl implements logindao {
 	private JdbcTemplate jt;
 
 	public boolean Validateuser(String uname, String pass) {
-		User u = jt.queryForObject("select * from user where uname=? and pass=?",new Object[]{uname,pass},
+		User u = jt.queryForObject("select * from user4 where uname=? and pass=?",new Object[]{uname,pass},
 				BeanPropertyRowMapper.newInstance(User.class));
 		if(u!=null) {
 			return true;

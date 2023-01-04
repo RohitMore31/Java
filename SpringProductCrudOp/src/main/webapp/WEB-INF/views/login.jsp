@@ -48,7 +48,7 @@ button {
 </head>    
 <body>    
     <div> <h1> Student Login Form </h1> </div>   
-    <form action="/login/signin" method="post">  
+    <form action="login/signin" method="post">  
         <div class="container">   
             <label>Username : </label>   
             <input type="text" placeholder="Enter Username" name="uname" required>  

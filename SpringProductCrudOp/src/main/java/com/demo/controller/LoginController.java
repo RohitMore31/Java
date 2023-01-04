@@ -13,18 +13,19 @@ import com.demo.service.LoginServices;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	
+
 	@Autowired
 	LoginServices lser;
 	@RequestMapping("/signin")
 	public ModelAndView signInUser(@RequestParam String uname, @RequestParam String pass) {
 		boolean status =lser.validateUser(uname,pass);
 		if(status) {
-			return new ModelAndView("redirect:product/showproduct");
+			return new ModelAndView("redirect:/product/showproduct");
 		}else {
 			//redirect to login page
 			String str = "Wrong Credential ";
 			return new ModelAndView("login","msg",str);
 		}
 	}
+
 }

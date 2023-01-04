@@ -16,7 +16,7 @@ public class ProductdaoImpl implements Productdao{
 	private JdbcTemplate jt;
 
 	public List<Product> ShowAllProduct() {
-		RowMapper rm=(rs,numrows)->{
+		RowMapper rm = (rs,numrows)->{
 			Product p=new Product();
 			p.setPid(rs.getInt(1));
 			p.setPname(rs.getString(2));
@@ -24,7 +24,7 @@ public class ProductdaoImpl implements Productdao{
 			p.setPrice(rs.getDouble(3));
 			return p;
 		};
-		List<Product> plist=jt.query("select * from product", rm);
+		List<Product> plist=jt.query("select * from product4",rm);
 		return plist;
 	}
 	

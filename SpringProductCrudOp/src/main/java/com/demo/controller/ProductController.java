@@ -16,10 +16,13 @@ public class ProductController {
 	@Autowired
 	private ProductServices pser;
 
+	@RequestMapping("/showproduct")
 	public ModelAndView showAllP() {
+		System.out.println("inside showproduct");
+		
 		List<Product>plist = pser.showAllProduct();
 		if(plist!=null) {
-			return new ModelAndView("diplayProduct","lst",plist);
+			return new ModelAndView("displayProduct","lst",plist);
 		}else {
 			String str="not found";
 			return new ModelAndView("login","msg",str);

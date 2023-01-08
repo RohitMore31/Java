@@ -23,20 +23,26 @@ public class CookiesServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
+		// request dispatcher to transfer control
 		RequestDispatcher rd = request.getRequestDispatcher("index.html");
 		switch(btn) {
 		case "add":
+			//create new cookies
 			Cookie c =new Cookie(name, pass);
+			// add cookies to response
 			response.addCookie(c);
 			out.print("Cookies Created");
+			// forwarding control 
 			rd.include(request, response);
 			break;
 			
 		case "delete":
+			// get list of cookies
 			Cookie[] arr= request.getCookies();
 			for (Cookie ck : arr) {
 				if(ck.getName().equals(name)) {
 					out.print(name);
+					// deleting cookies
 					ck.setMaxAge(0);
 					response.addCookie(ck);
 					out.print("Cookies deleted");
@@ -48,6 +54,7 @@ public class CookiesServlet extends HttpServlet {
 			break;
 			
 		case "show":
+			// get list of cookies
 			Cookie[]carr = request.getCookies();
 			for (Cookie ck : carr) {
 				out.println("<h3>"+ck+"</h3>");
